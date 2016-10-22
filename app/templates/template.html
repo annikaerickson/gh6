@@ -10,6 +10,8 @@
     <meta name="author" content="">
     <link rel="stylesheet" type="text/css" href="css/index.css?v={{ range(1,500000) | random }}">
     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/materialize.min.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/header.css') }}">
+
     <script   src="https://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
     <script src="{{ url_for('static', filename='js/materialize.min.js') }}"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -28,9 +30,9 @@
 
   <body>
   {%- block body %}
-        <nav class="blue darken-3">
+        <nav class="green darken-2">
         <div class="nav-wrapper">
-          <a href="#!" class="brand-logo">GH6</a>
+          <a href="#!" class="brand-logo">Neighbor</a>
           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">toc</i></a>
           <ul class="right hide-on-med-and-down">
             <li><a href="sass.html">Sass</a></li>

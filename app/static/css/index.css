@@ -1,5 +1,8 @@
 body {
     background-image: url("http://img.wallpaperfolder.com/f/6F88BDF17868/gateway-arch-high-quality-free.jpg");
+    background-size: cover;
+    min-height: 100vh;
+    color: white;
 }
 
 .main-button {

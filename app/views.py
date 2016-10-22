@@ -37,9 +37,20 @@ def save():
 		flash('Dados salvos!')
 	return render_template('new.html', form=form)
 
-@app.route('/view/<id>/')
-def view(id):
-	return render_template('view.html')
+# Helpful
+@app.route('/dashboard/helpful')
+def helpfulDashboard():
+	return render_template('helpful/helpful_dashboard.html.j2')
+
+# Homeless
+@app.route('/dashboard/homeless')
+def homelessDashboard():
+	return render_template('homeless/homeless_dashboard.html.j2')
+
+# Care Provider
+@app.route('/dashboard/careprovider')
+def careproviderDashboard():
+	return render_template('careprovider/careprovider_dashboard.html.j2')
 
 # === User login methods ===
 

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{%block title%}Index!{%endblock%}
+
+{%- block style %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/helpful.css') }}">
+{%- endblock %}
+
+{%block main_content%}
+  <h3>Actions</h3>
+    <ul class="collection">
+      <li class="collection-item"><a href="#">Add Profile</a></li>
+    </ul>
+
+  <h3>Notifications</h3>
+
+  <div class="row">
+    {% for n in range(2) %}
+        <div class="col s12 m3">
+          <div class="card  blue-grey lighten-3">
+            <div class="card-content white-text">
+              <span class="card-title">Notification name</span>
+              <p>I am a very simple card. I am good at containing small bits of information.
+              I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+              <a class="blue-text text-darken-2" href="#">Dismiss</a>
+            </div>
+          </div>
+        </div>
+    {% endfor %}
+  </div>
+
+  <h3>Dashboard</h3>
+
+  <div class="row">
+    {% for n in range(2) %}
+        <div class="col s12 m3">
+          <div class="card  blue-grey lighten-3">
+            <div class="card-content white-text">
+              <span class="card-title">Client Name</span>
+              <p>I am a very simple card. I am good at containing small bits of information.
+              I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+              <a class="blue-text text-darken-2" href="#">Dismiss</a>
+            </div>
+          </div>
+        </div>
+    {% endfor %}
+  </div>        
+
+{%endblock%}
