@@ -5,6 +5,10 @@ body {
     color: white;
 }
 
+.main-navigation {
+    margin-top: 200px;
+}
+
 .main-button {
 	width: 220px;
 }
