@@ -9,6 +9,9 @@ from flask.ext.bootstrap import Bootstrap
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.pymongo import PyMongo
 from flask.ext.login import LoginManager
+import sys
+
+sys.dont_write_bytecode = True
 
 app = Flask(__name__)
 
