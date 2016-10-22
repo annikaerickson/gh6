@@ -42,6 +42,14 @@ def save():
 def helpfulDashboard():
 	return render_template('helpful/helpful_dashboard.html.j2')
 
+@app.route('/register/helpful')
+def helpfulRegister():
+	return render_template('helpful/helpful_register.html.j2')
+
+@app.route('/login/helpful')
+def helpfulLogin():
+	return render_template('helpful/helpful_login.html.j2')
+
 # Homeless
 @app.route('/dashboard/homeless')
 def homelessDashboard():
