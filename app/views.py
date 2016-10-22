@@ -4,7 +4,7 @@ Python Aplication Template
 Licence: GPLv3
 """
 
-from flask import url_for, redirect, render_template, flash, g, session
+from flask import url_for, redirect, render_template, flash, g, session, request
 from flask.ext.login import login_user, logout_user, current_user, login_required
 from app import app, lm
 from forms import ExampleForm, LoginForm
@@ -67,5 +67,16 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('index'))
+
+@app.route('/register', methods = ['GET', 'POST'])
+def register():
+	if request.method == "GET":
+	    form = LoginForm()
+	    return render_template('register.html', 
+	        title = 'Sign In',
+	        form = form)
+	else: 
+		# Get Data
+		return ""
 
 # ====================

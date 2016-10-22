@@ -8,11 +8,11 @@ from flask.ext.wtf import Form, TextField, TextAreaField, DateTimeField, Passwor
 from flask.ext.wtf import Required
 
 class ExampleForm(Form):
-	title = TextField(u'Título', validators = [Required()])
-	content = TextAreaField(u'Conteúdo')
-	date = DateTimeField(u'Data', format='%d/%m/%Y %H:%M')
+	title = TextField(u'Title', validators = [Required()])
+	content = TextAreaField(u'Content')
+	date = DateTimeField(u'Date', format='%d/%m/%Y %H:%M')
 	#recaptcha = RecaptchaField(u'Recaptcha')
 
 class LoginForm(Form):
-	user = TextField(u'Usuário', validators = [Required()])
-	password = PasswordField(u'Senha', validators = [Required()])
+	user = TextField(u'Username', validators = [Required()])
+	password = PasswordField(u'Password', validators = [Required()])
