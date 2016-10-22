@@ -85,6 +85,11 @@ def careproviderRegister():
 def careproviderLogin():
 	return render_template('careprovider/careprovider_login.html.j2')
 
+# Tables
+@app.route('/tables/')
+def helpfulDashboard():
+	return render_template('tables.html.j2')
+
 # === User login methods ===
 
 @app.before_request
