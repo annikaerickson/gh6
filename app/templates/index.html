@@ -2,8 +2,56 @@
 
 {%block title%}Index!{%endblock%}
 
-{%block main_content%}
+{%- block style %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+{%- endblock %}
 
-	<h1>Index</h1>
+{%block main_content%}
+	<div class = "background-image">
+   		<div class = "card transparent z-depth-5">
+   		</div>
+	</div>
+
+	<h1> </h1>
+
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4 center-align">
+          <div class="icon-block">
+			<a class="waves-effect waves-light btn-large main-button"><i class="material-icons left">perm_identity</i>member</a>
+            <h5 class="center">Speeds up development</h5>
+
+            <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4 center-align">
+          <div class="icon-block">
+			<a class="waves-effect waves-light btn-large main-button"><i class="material-icons left">cloud</i>organization</a>
+            <h5 class="center">Speeds up development</h5>
+
+            <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4 center-align">
+          <div class="icon-block">
+            <a class="waves-effect waves-light btn-large main-button"><i class="material-icons left">assignment_ind</i>client</a>
+
+            <h5 class="center">Easy to work with</h5>
+
+            <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
+          </div>
+        </div>
+
+    </div>
+    <br><br>
+
+    <div class="section">
+
+    </div>
+  </div>
 
 {%endblock%}
