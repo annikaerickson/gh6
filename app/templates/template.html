@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html{% block html_attribs %} lang="en"{% endblock %}>
+{%- block html %}
+  <head>
+  {%- block head %}
+    <meta charset="utf-8">
+    <title>{% block title %}{{title}}{% endblock %}</title>
+    {%- block meta %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    {%- endblock %}
+
+    {%- block style %}
+    {%- if config['BOOTSTRAP_FONTAWESOME'] %}
+    <link href="{{'css/bootstrap.no-icons.css'|bootstrap_find_resource(use_minified=True)}}" rel="stylesheet">
+    <link href="{{'css/font-awesome.css'|bootstrap_find_resource(use_minified=False, cdn='fontawesome')}}" rel="stylesheet">
+    {%- else %}
+    <link href="{{'css/bootstrap.css'|bootstrap_find_resource}}" rel="stylesheet">
+    {%- endif %}
+    {%- block style_navbar_padding %}
+    {%- endblock %}
+    {%- endblock %}
+
+    {%- block favicons %}
+    {%- endblock %}
+
+  {%- endblock %}
+  </head>
+
+  <body>
+  {%- block body %}
+    {%- block body_content %}
+    {%- endblock %}
+    {%- block bootstrap_js_bottom %}
+    {%- if config['BOOTSTRAP_JQUERY_VERSION'] %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/{{config['BOOTSTRAP_JQUERY_VERSION']}}/jquery.{% if config['BOOTSTRAP_USE_MINIFIED'] %}min.{% endif %}js"></script>
+    {%- endif %}
+    <script src="{{'js/bootstrap.js'|bootstrap_find_resource}}"></script>
+    {%- endblock %}
+
+  {%- endblock %}
+  </body>
+{%- endblock %}
+</html>
