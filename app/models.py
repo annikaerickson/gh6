@@ -7,48 +7,57 @@ Licence: GPLv3
 from app import db
 
 class ModelExample(db.Model):
-	id = db.Column(db.Integer, primary_key=True)
-	title = db.Column(db.String(250))
-	content = db.Column(db.Text)
-	date = db.Column(db.DateTime)
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(250))
+    content = db.Column(db.Text)
+    date = db.Column(db.DateTime)
 
-class User(db.Model):
+
+class OrganizationUser(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     password = db.Column(db.String(500))
     firstname = db.Column(db.String(500))
     lastname = db.Column(db.String(500))
-    # posts = db.relationship('Post', backref = 'author', lazy = 'dynamic')
-
-class OrganizationUser(User):
-    email = db.Column(db.String(120), unique = True)
-
-class HelpfulUser(User):
     email = db.Column(db.String(120), unique = True)
     # posts = db.relationship('Post', backref = 'author', lazy = 'dynamic')
 
-class HomelessUser(User):
-    personalID = db.Column(db.String(64), unique = True)
+class HelpfulUser(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    username = db.Column(db.String(64), unique = True)
+    password = db.Column(db.String(500))
+    firstname = db.Column(db.String(500))
+    lastname = db.Column(db.String(500))
+    email = db.Column(db.String(120), unique = True)
+    # posts = db.relationship('Post', backref = 'author', lazy = 'dynamic')
+
+class HomelessUser(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    username = db.Column(db.String(64), unique = True)
+    password = db.Column(db.String(500))
+    firstname = db.Column(db.String(500))
+    lastname = db.Column(db.String(500))
+    email = db.Column(db.String(120), unique = True)
     # posts = db.relationship('Post', backref = 'author', lazy = 'dynamic')
 
 def __init__(self, password, firstname, lastname, email):
-        self.password = password
-        self.firstname = firstname
-        self.lastname = lastname
-        self.email = email
+    self.password = password
+    self.firstname = firstname
+    self.lastname = lastname
+    self.email = email
 
 
-    def is_authenticated(self):
-        return True
+def is_authenticated(self):
+    return True
 
-    def is_active(self):
-        return True
+def is_active(self):
+    return True
 
-    def is_anonymous(self):
-        return False
+def is_anonymous(self):
+    return False
 
-    def get_id(self):
-        return unicode(self.id)
+def get_id(self):
+    return unicode(self.id)
 
-    def __repr__(self):
-        return '<User %r>' % (self.nickname)
+def __repr__(self):
+    return '<User %r>' % (self.nickname)
 
