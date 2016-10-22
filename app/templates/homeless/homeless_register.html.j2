@@ -7,9 +7,21 @@
 {%- endblock %}
 
 {%block main_content%}
-  <h3>Login</h3>
+  <h3>Register</h3>
   <div class="row">
     <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="icon_prefix" type="text" class="validate">
+          <label for="icon_prefix">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="icon_telephone" type="text" class="validate">
+          <label for="icon_telephone">Last Name</label>
+        </div>
+      </div>
+
       <div class="row">
         <div class="input-field col s6">
           <i class="material-icons prefix">email</i>
@@ -30,8 +42,6 @@
         <i class="material-icons right">send</i>
       </button>
     </form>
-      <h6>Don't have an account? </h6>
-      <a href="../register/helpful" class="brand-logo">Register</a>
   </div>
         
 

@@ -55,10 +55,26 @@ def helpfulLogin():
 def homelessDashboard():
 	return render_template('homeless/homeless_dashboard.html.j2')
 
+@app.route('/register/homeless')
+def homelessRegister():
+	return render_template('homeless/homeless_register.html.j2')
+
+@app.route('/login/homeless')
+def homelessLogin():
+	return render_template('homeless/homeless_login.html.j2')
+
 # Care Provider
 @app.route('/dashboard/careprovider')
 def careproviderDashboard():
 	return render_template('careprovider/careprovider_dashboard.html.j2')
+
+@app.route('/register/careprovider')
+def careproviderRegister():
+	return render_template('careprovider/careprovider_register.html.j2')
+
+@app.route('/login/careprovider')
+def careproviderLogin():
+	return render_template('careprovider/careprovider_login.html.j2')
 
 # === User login methods ===
 
