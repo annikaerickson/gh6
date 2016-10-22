@@ -1,9 +1,7 @@
 venv
 */*.pyc
 *.pyc
-
-*.pyc
-
 *.iml
-
 *.xml
+app/application.db
+app/__init__.pyc

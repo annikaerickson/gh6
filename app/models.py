@@ -52,5 +52,3 @@ class OrganizationUser(db.Model):
     def __repr__(self):
         return '<User %r>' % (self.nickname)
 
-db.create_all()
-db.session.commit()
