@@ -12,16 +12,15 @@
     {%- endblock %}
 
     {%- block style %}
-    {%- if config['BOOTSTRAP_FONTAWESOME'] %}
-    <link href="{{'css/bootstrap.no-icons.css'|bootstrap_find_resource(use_minified=True)}}" rel="stylesheet">
-    <link href="{{'css/font-awesome.css'|bootstrap_find_resource(use_minified=False, cdn='fontawesome')}}" rel="stylesheet">
-    {%- else %}
-    <link href="{{'css/bootstrap.css'|bootstrap_find_resource}}" rel="stylesheet">
-    {%- endif %}
-    {%- block style_navbar_padding %}
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/materialize.min.css') }}">
+    <script   src="https://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/materialize.min.js') }}"></script>
     {%- endblock %}
-    {%- endblock %}
-
+    <script>
+    $(document).ready(function(){
+      $(".button-collapse").sideNav();
+    });
+    </script>
     {%- block favicons %}
     {%- endblock %}
 
@@ -30,13 +29,26 @@
 
   <body>
   {%- block body %}
+        <nav class="blue darken-3">
+        <div class="nav-wrapper">
+          <a href="#!" class="brand-logo">GH6</a>
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">Menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="sass.html">Sass</a></li>
+            <li><a href="badges.html">Components</a></li>
+            <li><a href="collapsible.html">Javascript</a></li>
+            <li><a href="mobile.html">Mobile</a></li>
+          </ul>
+          <ul class="side-nav" id="mobile-demo">
+            <li><a href="sass.html">Sass</a></li>
+            <li><a href="badges.html">Components</a></li>
+            <li><a href="collapsible.html">Javascript</a></li>
+            <li><a href="mobile.html">Mobile</a></li>
+          </ul>
+        </div>
+      </nav>
+
     {%- block body_content %}
-    {%- endblock %}
-    {%- block bootstrap_js_bottom %}
-    {%- if config['BOOTSTRAP_JQUERY_VERSION'] %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/{{config['BOOTSTRAP_JQUERY_VERSION']}}/jquery.{% if config['BOOTSTRAP_USE_MINIFIED'] %}min.{% endif %}js"></script>
-    {%- endif %}
-    <script src="{{'js/bootstrap.js'|bootstrap_find_resource}}"></script>
     {%- endblock %}
 
   {%- endblock %}
