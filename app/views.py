@@ -6,9 +6,9 @@ Licence: GPLv3
 
 from flask import url_for, redirect, render_template, flash, g, session, request
 from flask.ext.login import login_user, logout_user, current_user, login_required
-from app import app, lm
+from app import app, lm, db
 from forms import ExampleForm, LoginForm
-from models import User
+from models import OrganizationUser
 
 @app.route('/')
 def index():
@@ -68,9 +68,18 @@ def homelessLogin():
 def careproviderDashboard():
 	return render_template('careprovider/careprovider_dashboard.html.j2')
 
-@app.route('/register/careprovider')
+@app.route('/register/careprovider', methods=["GET", "POST"])
 def careproviderRegister():
-	return render_template('careprovider/careprovider_register.html.j2')
+	if request.method == "POST":
+		password = request.form.get('password', None)
+		firstname = request.form.get('firstname', None)
+		lastname = request.form.get('lastname', None)
+		email = request.form.get('email', None)
+		newUser = OrganizationUser(password, firstname, lastname, email)
+		db.session.add(newUser)
+		db.session.commit()
+	else:
+		return render_template('careprovider/careprovider_register.html.j2')
 
 @app.route('/login/careprovider')
 def careproviderLogin():
@@ -85,18 +94,6 @@ def before_request():
 @lm.user_loader
 def load_user(id):
     return User.query.get(int(id))
-
-@app.route('/login/', methods = ['GET', 'POST'])
-def login():
-    if g.user is not None and g.user.is_authenticated():
-        return redirect(url_for('index'))
-    form = LoginForm()
-    if form.validate_on_submit():
-        login_user(g.user)
-
-    return render_template('login.html', 
-        title = 'Sign In',
-        form = form)
 
 @app.route('/logout/')
 def logout():
