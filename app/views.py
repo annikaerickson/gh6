@@ -8,7 +8,7 @@ from flask import url_for, redirect, render_template, flash, g, session, request
 from flask.ext.login import login_user, logout_user, current_user, login_required
 from app import app, lm, db
 from forms import ExampleForm, LoginForm
-from models import OrganizationUser
+from models import OrganizationUser, HomelessUser, HelpfulUser
 
 @app.route('/')
 def index():
@@ -37,26 +37,66 @@ def save():
 def helpfulDashboard():
 	return render_template('helpful/helpful_dashboard.html.j2')
 
-@app.route('/register/helpful')
+@app.route('/register/helpful', methods=["GET", "POST"])
 def helpfulRegister():
-	return render_template('helpful/helpful_register.html.j2')
+	if request.method == "POST":
+		password = request.form.get('password', None)
+		firstname = request.form.get('firstname', None)
+		lastname = request.form.get('lastname', None)
+		email = request.form.get('email', None)
+		newUser = HelpfulUser(password, firstname, lastname, email)
+		db.session.add(newUser)
+		db.session.commit()
+		return render_template('helpful/helpful_login.html.j2')
+	else:
+		return render_template('helpful/helpful_register.html.j2')
 
-@app.route('/login/helpful')
+@app.route('/login/helpful', methods=["GET", "POST"])
 def helpfulLogin():
-	return render_template('helpful/helpful_login.html.j2')
+	if request.method == "POST":
+		password = request.form.get('password', None)
+		email = request.form.get('email', None)
+		query = OrganizationUser.query.filter_by(email=email, password=password).first()
+		if (query):
+			return render_template('helpful/helpful_dashboard.html.j2')
+		else:
+			flash('Incorrect login!')
+			return render_template('helpful/helpful_login.html.j2')
+	else:
+		return render_template('helpful/helpful_login.html.j2')
 
 # Homeless
 @app.route('/dashboard/homeless')
 def homelessDashboard():
 	return render_template('homeless/homeless_dashboard.html.j2')
 
-@app.route('/register/homeless')
+@app.route('/register/homeless', methods=["GET", "POST"])
 def homelessRegister():
-	return render_template('homeless/homeless_register.html.j2')
+	if request.method == "POST":
+		password = request.form.get('password', None)
+		firstname = request.form.get('firstname', None)
+		lastname = request.form.get('lastname', None)
+		email = request.form.get('email', None)
+		newUser = HomelessUser(password, firstname, lastname, email)
+		db.session.add(newUser)
+		db.session.commit()
+		return render_template('homeless/homeless_login.html.j2')
+	else:
+		return render_template('homeless/homeless_register.html.j2')
 
-@app.route('/login/homeless')
+@app.route('/login/homeless', methods=["GET", "POST"])
 def homelessLogin():
-	return render_template('homeless/homeless_login.html.j2')
+	if request.method == "POST":
+		password = request.form.get('password', None)
+		email = request.form.get('email', None)
+		query = OrganizationUser.query.filter_by(email=email, password=password).first()
+		if (query):
+			return render_template('homeless/homeless_dashboard.html.j2')
+		else:
+			flash('Incorrect login!')
+			return render_template('homeless/homeless_login.html.j2')
+	else:
+		return render_template('homeless/homeless_login.html.j2')
 
 # Care Provider
 @app.route('/dashboard/careprovider')
@@ -86,20 +126,16 @@ def careproviderLogin():
 		if (query):
 			return render_template('careprovider/careprovider_dashboard.html.j2')
 		else:
-			return "Not found"
+			flash('Incorrect login!')
+			return render_template('careprovider/careprovider_login.html.j2')
 		# careproviderDashboard()
 	else:
 		return render_template('careprovider/careprovider_login.html.j2')
 
-@app.route("/list/careproviders")
+@app.route("/testlist")
 def listCareProviders():
-	orgs = OrganizationUser.query.all()
+	orgs = HelpfulUser.query.all()
 	return render_template("test.html", orgs = orgs)
-
-# Tables
-@app.route('/tables/')
-def helpfulDashboard():
-	return render_template('tables.html.j2')
 
 # === User login methods ===
 

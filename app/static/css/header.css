@@ -19,6 +19,10 @@
 	color: #4A4A4A 
 }
 
+.brand-logo img {
+    height: 42px;
+    margin-top: 13px;
+}
 body {
     background-image: url("https://pp.vk.me/c626427/v626427592/35285/K7b7dEGgxWw.jpg");
     background-size: cover;

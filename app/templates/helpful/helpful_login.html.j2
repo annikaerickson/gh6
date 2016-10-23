@@ -1,19 +1,20 @@
 {% extends "base.html" %}
 
-{%block title%}Login Helpful{%endblock%}
+{%block title%}Login to Help a Neighbor{%endblock%}
 
 {%- block style %}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/helpful.css') }}">
+
 {%- endblock %}
 
 {%block main_content%}
-  <h3>Login</h3>
+  <h3>Login - Help a Neighbor</h3>
   <div class="row">
-    <form class="col s12">
+    <form class="col s12" action="/login/helpful" method="POST">
       <div class="row">
         <div class="input-field col s6">
           <i class="material-icons prefix">email</i>
-          <input id="icon_prefix" type="text" class="validate">
+          <input id="icon_prefix" type="text" name="email" class="validate">
           <label for="icon_prefix">Email</label>
         </div>
       </div>
@@ -21,17 +22,18 @@
       <div class="row">
         <div class="input-field col s6">
           <i class="material-icons prefix">vpn_key</i>
-          <input id="password" type="password" class="validate">
+          <input id="password" type="password" name="password" class="validate">
           <label for="password">Password</label>
         </div>
       </div>
 
-      <button class="btn waves-effect neighbor-green" type="submit" name="action">Submit
+      <button class="btn waves-effect neighbor-green" type="submit" name="action" href="">Submit
         <i class="material-icons right">send</i>
       </button>
-      <button class="btn neighbor-lightgrey" type="register" name="action">Register
-        <i class="material-icons right">class</i>
-      </button>
+
+      <p>
+        <a class="green-text text-lighten-1" href="/register/helpful">Register</a>
+      </p>
     </form>
   </div>
         
