@@ -58,7 +58,7 @@ def helpfulLogin():
 		email = request.form.get('email', None)
 		query = OrganizationUser.query.filter_by(email=email, password=password).first()
 		if (query):
-			return render_template('helpful/helpful_dashboard.html.j2')
+			return redirect(url_for('/dashboard/helpful'))
 		else:
 			flash('Incorrect login!')
 			return render_template('helpful/helpful_login.html.j2')
@@ -91,7 +91,7 @@ def homelessLogin():
 		email = request.form.get('email', None)
 		query = OrganizationUser.query.filter_by(email=email, password=password).first()
 		if (query):
-			return render_template('homeless/homeless_dashboard.html.j2')
+			return redirect(url_for('/dashboard/homeless'))
 		else:
 			flash('Incorrect login!')
 			return render_template('homeless/homeless_login.html.j2')
@@ -101,7 +101,8 @@ def homelessLogin():
 # Care Provider
 @app.route('/dashboard/careprovider')
 def careproviderDashboard():
-	return render_template('careprovider/careprovider_dashboard.html.j2')
+	clients = HomelessUser.query.all()
+	return render_template('careprovider/careprovider_dashboard.html.j2', clients=clients)
 
 @app.route('/register/careprovider', methods=["GET", "POST"])
 def careproviderRegister():
@@ -124,7 +125,7 @@ def careproviderLogin():
 		email = request.form.get('email', None)
 		query = OrganizationUser.query.filter_by(email=email, password=password).first()
 		if (query):
-			return render_template('careprovider/careprovider_dashboard.html.j2')
+			return redirect('dashboard/careprovider')
 		else:
 			flash('Incorrect login!')
 			return render_template('careprovider/careprovider_login.html.j2')
