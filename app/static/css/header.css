@@ -31,6 +31,25 @@ body {
     font-family: GothamNarrow-Light;
 }
 
+.axis path, .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.diagram {
+    background-color: #FFFFFF;
+}
+
+.arc text {
+  font: 10px sans-serif;
+  text-anchor: middle;
+}
+
+.arc path {
+  stroke: #fff;
+}
+
 @font-face {
     font-family: GothamNarrow-Light;
     src: url(/static/fonts/GothamNarrow-Light.otf);
@@ -40,3 +59,4 @@ body {
     font-family: gotham-bold;
     src: url(Gotham Narrow Bold.otf);
 }
+
