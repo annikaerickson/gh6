@@ -14,11 +14,6 @@ from models import OrganizationUser
 def index():
 	return render_template('index.html')
 
-
-@app.route('/list/')
-def posts():
-	return render_template('list.html')
-
 @app.route('/new/')
 @login_required
 def new():
@@ -78,12 +73,28 @@ def careproviderRegister():
 		newUser = OrganizationUser(password, firstname, lastname, email)
 		db.session.add(newUser)
 		db.session.commit()
+		return render_template('careprovider/careprovider_login.html.j2')
 	else:
 		return render_template('careprovider/careprovider_register.html.j2')
 
-@app.route('/login/careprovider')
+@app.route('/login/careprovider', methods=["GET", "POST"])
 def careproviderLogin():
-	return render_template('careprovider/careprovider_login.html.j2')
+	if request.method == "POST":
+		password = request.form.get('password', None)
+		email = request.form.get('email', None)
+		query = OrganizationUser.query.filter_by(email=email, password=password).first()
+		if (query):
+			return "Found"
+		else:
+			return "Not found"
+		# careproviderDashboard()
+	else:
+		return render_template('careprovider/careprovider_login.html.j2')
+
+@app.route("/list/careproviders")
+def listCareProviders():
+	orgs = OrganizationUser.query.all()
+	return render_template("test.html", orgs = orgs)
 
 # Tables
 @app.route('/tables/')

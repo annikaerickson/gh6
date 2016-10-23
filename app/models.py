@@ -21,6 +21,29 @@ class OrganizationUser(db.Model):
     email = db.Column(db.String(120), unique = True)
     # posts = db.relationship('Post', backref = 'author', lazy = 'dynamic')
 
+    def __init__(self, password, firstname, lastname, email):
+        self.password = password
+        self.firstname = firstname
+        self.lastname = lastname
+        self.email = email
+
+
+    def is_authenticated(self):
+        return True
+
+    def is_active(self):
+        return True
+
+    def is_anonymous(self):
+        return False
+
+    def get_id(self):
+        return unicode(self.id)
+
+    def __repr__(self):
+        return '<User %r>' % (self.nickname)
+
+
 class HelpfulUser(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String(64), unique = True)
@@ -29,6 +52,29 @@ class HelpfulUser(db.Model):
     lastname = db.Column(db.String(500))
     email = db.Column(db.String(120), unique = True)
     # posts = db.relationship('Post', backref = 'author', lazy = 'dynamic')
+
+    def __init__(self, password, firstname, lastname, email):
+        self.password = password
+        self.firstname = firstname
+        self.lastname = lastname
+        self.email = email
+
+
+    def is_authenticated(self):
+        return True
+
+    def is_active(self):
+        return True
+
+    def is_anonymous(self):
+        return False
+
+    def get_id(self):
+        return unicode(self.id)
+
+    def __repr__(self):
+        return '<User %r>' % (self.nickname)
+
 
 class HomelessUser(db.Model):
     id = db.Column(db.Integer, primary_key = True)
@@ -39,25 +85,25 @@ class HomelessUser(db.Model):
     email = db.Column(db.String(120), unique = True)
     # posts = db.relationship('Post', backref = 'author', lazy = 'dynamic')
 
-def __init__(self, password, firstname, lastname, email):
-    self.password = password
-    self.firstname = firstname
-    self.lastname = lastname
-    self.email = email
+    def __init__(self, password, firstname, lastname, email):
+        self.password = password
+        self.firstname = firstname
+        self.lastname = lastname
+        self.email = email
 
 
-def is_authenticated(self):
-    return True
+    def is_authenticated(self):
+        return True
 
-def is_active(self):
-    return True
+    def is_active(self):
+        return True
 
-def is_anonymous(self):
-    return False
+    def is_anonymous(self):
+        return False
 
-def get_id(self):
-    return unicode(self.id)
+    def get_id(self):
+        return unicode(self.id)
 
-def __repr__(self):
-    return '<User %r>' % (self.nickname)
+    def __repr__(self):
+        return '<User %r>' % (self.nickname)
 
