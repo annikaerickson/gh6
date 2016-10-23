@@ -57,7 +57,7 @@ def helpfulLogin():
 			flash('Incorrect login!')
 			return render_template('helpful/helpful_login.html.j2')
 	else:
-		if not session.has_key("helpfulEmail"):
+		if session.has_key("helpfulEmail"):
 			return redirect('dashboard/helpful')
 		return render_template('helpful/helpful_login.html.j2')
 
@@ -104,7 +104,7 @@ def homelessLogin():
 			flash('Incorrect login!')
 			return render_template('homeless/homeless_login.html.j2')
 	else:
-		if not session.has_key("homelessEmail"):
+		if session.has_key("homelessEmail"):
 			return redirect('dashboard/homeless')
 
 		return render_template('homeless/homeless_login.html.j2')
@@ -176,7 +176,7 @@ def careproviderLogin():
 			return render_template('careprovider/careprovider_login.html.j2')
 		# careproviderDashboard()
 	else:
-		if not session.has_key("careproviderEmail"):
+		if session.has_key("careproviderEmail"):
 			return redirect('dashboard/careprovider')
 		return render_template('careprovider/careprovider_login.html.j2')
 
