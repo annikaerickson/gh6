@@ -3,7 +3,7 @@
 {%block title%}Care Provider Dashboard{%endblock%}
 
 {%- block style %}
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/helpful.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/careprovider.css') }}">
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.13/d3.min.js"></script>
 {%- endblock %}
@@ -17,11 +17,12 @@
 
   <h3>Actions</h3>
     <ul class="collection">
-      <li class="collection-item"><a href="/register/homeless">Register for help</a></li>
+      <li class="collection-item"><a href="/register/homeless">Add New Profile</a></li>
       <li class="collection-item"><a href="/rateCareProvider">Rate Care Provider</a></li>
-      <li class="collection-item"><a href="/ratings">See Care Provider Ratings</a></li>
+      <li class="collection-item"><a href="#">Message a Neighbor</a></li>
     </ul>
 
+  <h3>Dashboard</h3>
     <div id="figure" class = "diagram" style="margin-bottom: 50px;"></div>
 <script>
 
@@ -180,25 +181,35 @@ var svg = d3.select("#figure").append("svg")
   }
   </style>
 
-  <h3>Texts for Service</h3>
+  <h3>Client Updates</h3>
 
   <div class="row">
-    {% for n in range(2) %}
-        <div class="col s12 m3">
-          <div class="card  blue-grey lighten-3">
-            <div class="card-content white-text">
-              <span class="card-title">(142) 163-7254</span>
-              <p>Hi, here is some text.</p>
-            </div>
-            <div class="card-action">
-              <a class="blue-text text-darken-2" href="#">Dismiss</a>
-            </div>
-          </div>
+    <div class="col s12 m3">
+      <div class="card  blue-grey lighten-3">
+        <div class="card-content white-text">
+          <span class="card-title">(314) 526-2634</span>
+          <p>Hi, I need a place to stay.</p>
         </div>
-    {% endfor %}
+        <div class="card-action">
+          <a class="blue-text text-darken-2" href="#">Dismiss</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s12 m3">
+      <div class="card  blue-grey lighten-3">
+        <div class="card-content white-text">
+          <span class="card-title">(142) 163-7254</span>
+          <p>Hello - I am hungry.</p>
+        </div>
+        <div class="card-action">
+          <a class="blue-text text-darken-2" href="#">Dismiss</a>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <h3>Dashboard</h3>
+  <h3>Client List</h3>
 
     <style type="text/css">
     .tg  {border-collapse:collapse;border-spacing:0;}
