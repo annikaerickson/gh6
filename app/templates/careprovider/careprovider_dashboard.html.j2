@@ -54,22 +54,34 @@
 
   <h3>Dashboard</h3>
 
-  <div class="row">
-    {% for n in range(2) %}
-        <div class="col s12 m3">
-          <div class="card  blue-grey lighten-3">
-            <div class="card-content white-text">
-              <span class="card-title">Client Name</span>
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-              <a class="blue-text text-darken-2" href="#">Dismiss</a>
-            </div>
-          </div>
-        </div>
-    {% endfor %}
-  </div>      
+    <style type="text/css">
+    .tg  {border-collapse:collapse;border-spacing:0;}
+    .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+    .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+    .tg .tg-yw4l{vertical-align:top}
+    </style>
+    <table class="tg">
+      <tr>
+        <strong><th class="tg-yw4l">Client ID</th></strong>
+        <strong><th class="tg-yw4l">First Name</th></strong>
+        <strong><th class="tg-yw4l">Last Name</th></strong>
+        <strong><th class="tg-yw4l">Age</th></strong>
+        <strong><th class="tg-yw4l">Gender</th></strong>
+        <strong><th class="tg-yw4l">Last Visit</th></strong>
+        <strong><th class="tg-yw4l">Last Update</th></strong>
+      </tr>
+      {% for client in clients %}
+        <tr>
+          <td>{{ client.id }}</td>
+          <td>{{ client.firstname }}</td>
+          <td>{{ client.lastname }}</td>
+          <td>{{ client.age }}</td>
+          <td>{{ client.gender }}</td>
+          <td>{{ client.lastvisit }}</td>
+          <td>{{ client.lastupdate }}</td>
+        </tr>
+      {% endfor %}
+    </table>
 
 
   <script>
