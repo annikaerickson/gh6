@@ -79,10 +79,17 @@ class HelpfulUser(db.Model):
 class HomelessUser(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String(64), unique = True)
+    personalID = db.Column(db.String(64), unique = True)
     password = db.Column(db.String(500))
     firstname = db.Column(db.String(500))
     lastname = db.Column(db.String(500))
     email = db.Column(db.String(120), unique = True)
+    age = db.Column(db.Integer())
+    gender = db.Column(db.String(20))
+    lastvisit = db.Column(db.DateTime())
+    lastupdate = db.Column(db.DateTime())
+
+
     # posts = db.relationship('Post', backref = 'author', lazy = 'dynamic')
 
     def __init__(self, password, firstname, lastname, email):
@@ -90,6 +97,11 @@ class HomelessUser(db.Model):
         self.firstname = firstname
         self.lastname = lastname
         self.email = email
+        self.personalID = personalID
+        self.age = age
+        self.gender = gender
+        self.lastvisit = lastvisit
+        self.lastupdate = lastupdate
 
 
     def is_authenticated(self):
