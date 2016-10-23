@@ -7,7 +7,12 @@
 }
 
 .main-button {
-	width: 220px;
+	width: 300px;
+}
+
+.front-text-nbr {
+  font-size: 20px;
+  padding: 20px;
 }
 
 .top-bar {
