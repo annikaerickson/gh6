@@ -1,0 +1,19 @@
+.client-name {
+	margin-top: 10px;
+}
+.client-image {
+	width: 100%;
+	border-radius: 100vh;
+	padding: 20px;
+}
+.client-info {
+	font-size: 1.3em;
+}
+.question-text {
+	font-size: 1.4em;
+	margin-top: 20px;
+}
+.question-answer {
+	font-size: 1.3em;
+	margin-left: 10px;
+}

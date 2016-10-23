@@ -179,8 +179,6 @@ var svg = d3.select("#figure").append("svg")
     color: white;
   }
 
-</style>
-
   <h3>Texts for Service</h3>
 
   <div class="row">
@@ -207,27 +205,63 @@ var svg = d3.select("#figure").append("svg")
     .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
     .tg .tg-yw4l{vertical-align:top}
     </style>
-    <table class="tg">
-      <tr>
-        <strong><th class="tg-yw4l">Client ID</th></strong>
-        <strong><th class="tg-yw4l">First Name</th></strong>
-        <strong><th class="tg-yw4l">Last Name</th></strong>
-        <strong><th class="tg-yw4l">Age</th></strong>
-        <strong><th class="tg-yw4l">Gender</th></strong>
-        <strong><th class="tg-yw4l">Last Visit</th></strong>
-        <strong><th class="tg-yw4l">Last Update</th></strong>
-      </tr>
-      {% for client in clients %}
+    <table>
+      <thead>
         <tr>
-          <td>{{ client.id }}</td>
-          <td>{{ client.firstname }}</td>
-          <td>{{ client.lastname }}</td>
-          <td>{{ client.age }}</td>
-          <td>{{ client.gender }}</td>
-          <td>{{ client.lastvisit }}</td>
-          <td>{{ client.lastupdate }}</td>
+          <strong><th class="tg-yw4l">Client ID</th></strong>
+          <strong><th class="tg-yw4l">First Name</th></strong>
+          <strong><th class="tg-yw4l">Last Name</th></strong>
+          <strong><th class="tg-yw4l">Age</th></strong>
+          <strong><th class="tg-yw4l">Gender</th></strong>
+          <strong><th class="tg-yw4l">Last Visit</th></strong>
+          <strong><th class="tg-yw4l">Last Update</th></strong>
         </tr>
-      {% endfor %}
+      </thead>
+      <tr>
+       <td><a href="/client/profile">#174920F</a></td>
+       <td>Benson</td>
+       <td>Patricia</td>
+       <td>33</td>
+       <td>Female</td>
+       <td>08-03-2016</td>
+       <td>08-22-2016</td>
+     </tr>
+     <tr>
+       <td><a href="/client/profile">#142368S</a></td>
+       <td>Charles</td>
+       <td>Grace</td>
+       <td>54</td>
+       <td>Female</td>
+       <td>08-01-2016</td>
+       <td>03-12-2016</td>
+     </tr>
+     <tr>
+       <td><a href="/client/profile">#732236G</a></td>
+       <td>Clifford</td>
+       <td>Charles</td>
+       <td>14</td>
+       <td>Male</td>
+       <td>08-21-2016</td>
+       <td>03-12-2016</td>
+     </tr>
+     <tr>
+       <td><a href="/client/profile">#739575X</a></td>
+       <td>Flindt</td>
+       <td>Andy</td>
+       <td>31</td>
+       <td>Male</td>
+       <td>08-21-2016</td>
+       <td>03-12-2016</td>
+     </tr>
+     <tr>
+       <td><a href="/client/profile">#229576Z</a></td>
+       <td>Michael</td>
+       <td>Phillip</td>
+       <td>17</td>
+       <td>Male</td>
+       <td>08-21-2016</td>
+       <td>03-12-2016</td>
+     </tr>
     </table>
 
 {%endblock%}
