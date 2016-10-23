@@ -7,9 +7,17 @@
 {%- endblock %}
 
 {%block main_content%}
+    <div class="row">
+      <a href="dashboard/careprovider" class="waves-effect waves-light btn col s4  cyan darken-3">Care</a>
+      <a href="/careprovider/careprovider_review" class="waves-effect waves-light btn col s4">Review</a>
+      <a class="waves-effect waves-light btn col s4">Manage</a>
+    </div>
+
   <h3>Actions</h3>
     <ul class="collection">
-      <li class="collection-item"><a href="#">Add Profile</a></li>
+      <li class="collection-item"><a href="/register/homeless">Register for help</a></li>
+      <li class="collection-item"><a href="/rateCareProvider">Rate Care Provider</a></li>
+      <li class="collection-item"><a href="/ratings">See Care Provider Ratings</a></li>
     </ul>
 
   <style>
@@ -33,16 +41,15 @@
   <div style="width: 420px;">42</div>
 </div>
 
-  <h3>Notifications</h3>
+  <h3>Texts for Service</h3>
 
   <div class="row">
     {% for n in range(2) %}
         <div class="col s12 m3">
           <div class="card  blue-grey lighten-3">
             <div class="card-content white-text">
-              <span class="card-title">Notification name</span>
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
+              <span class="card-title">(142) 163-7254</span>
+              <p>Hi, here is some text.</p>
             </div>
             <div class="card-action">
               <a class="blue-text text-darken-2" href="#">Dismiss</a>

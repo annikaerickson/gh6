@@ -7,10 +7,28 @@
 {%- endblock %}
 
 {%block main_content%}
-  {% for org in orgs %} 
-    {{ org.firstname }}<br>
-    {{ org.lastname }}<br>
-    {{ org.email }}<br>
-    {{ org.password }}<br>
+	<h3> homeless</h3>
+  {% for homeless in homelesses %} 
+    {{ homeless.firstname }}<br>
+    {{ homeless.lastname }}<br>
+    {{ homeless.email }}<br>
+    {{ homeless.password }}<br>
   {% endfor %}
+
+  <h3> helpful</h3>
+  {% for helpful in helpfuls %} 
+    {{ helpful.firstname }}<br>
+    {{ helpful.lastname }}<br>
+    {{ helpful.email }}<br>
+    {{ helpful.password }}<br>
+  {% endfor %}
+
+  <h3> organization</h3>
+  {% for organization in organizations %} 
+    {{ organization.firstname }}<br>
+    {{ organization.lastname }}<br>
+    {{ organization.email }}<br>
+    {{ organization.password }}<br>
+  {% endfor %}
+
 {%endblock%}

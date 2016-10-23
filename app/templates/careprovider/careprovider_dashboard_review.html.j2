@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{%block title%}Care Provider Dashboard{%endblock%}
+
+{%- block style %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/helpful.css') }}">
+{%- endblock %}
+
+{%block main_content%}
+    <div class="row">
+      <a class="waves-effect waves-light btn col s4">Care</a>
+      <a class="waves-effect waves-light btn col s4 cyan darken-3">Review</a>
+      <a class="waves-effect waves-light btn col s4">Manage</a>
+    </div>
+
+  <style>
+  .chart div {
+    font: 10px sans-serif;
+    background-color: steelblue;
+    text-align: right;
+    padding: 3px;
+    margin: 1px;
+    color: white;
+  }
+
+</style>
+
+<h3>Care Provider Review</h3>
+
+<div class="chart">
+  <div style="width: 40px;">4</div>
+  <div style="width: 80px;">8</div>
+  <div style="width: 150px;">15</div>
+  <div style="width: 160px;">16</div>
+  <div style="width: 230px;">23</div>
+  <div style="width: 420px;">42</div>
+</div>
+
+
+    <style type="text/css">
+    .tg  {border-collapse:collapse;border-spacing:0;}
+    .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+    .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+    .tg .tg-yw4l{vertical-align:top}
+    </style>
+
+
+  <script>
+    var data = [4, 8, 15, 16, 23, 42];
+
+    d3.select(".chart")
+  .selectAll("div")
+    .data(data)
+  .enter().append("div")
+    .style("width", function(d) { return d * 10 + "px"; })
+    .text(function(d) { return d; });
+  </script>  
+
+{%endblock%}

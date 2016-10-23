@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{%block title%}Ratings{%endblock%}
+
+{%- block style %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/helpful.css') }}">
+{%- endblock %}
+
+{%block main_content%}
+  <h3>Ratings</h3>
+
+  {% for rating in ratings %}
+      <div class="col s12 m6">
+        <div class="card  blue-grey lighten-3">
+          <div class="card-content white-text">
+            <span class="card-title">{{ rating.rating }}/100 - {{ rating.placeName }}</span>
+            <p>{{ rating.description }} </p>
+          </div>
+          <div class="card-action">
+            <a class="blue-text text-darken-2" href="#">See more</a>
+          </div>
+        </div>
+      </div>
+  {% endfor %}
+
+{%endblock%}

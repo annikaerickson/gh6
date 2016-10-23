@@ -6,13 +6,6 @@ Licence: GPLv3
 
 from app import db
 
-class ModelExample(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(250))
-    content = db.Column(db.Text)
-    date = db.Column(db.DateTime)
-
-
 class OrganizationUser(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     password = db.Column(db.String(500))
@@ -27,22 +20,11 @@ class OrganizationUser(db.Model):
         self.lastname = lastname
         self.email = email
 
-
     def is_authenticated(self):
         return True
 
-    def is_active(self):
-        return True
-
-    def is_anonymous(self):
-        return False
-
     def get_id(self):
         return unicode(self.id)
-
-    def __repr__(self):
-        return '<User %r>' % (self.nickname)
-
 
 class HelpfulUser(db.Model):
     id = db.Column(db.Integer, primary_key = True)
@@ -58,7 +40,6 @@ class HelpfulUser(db.Model):
         self.firstname = firstname
         self.lastname = lastname
         self.email = email
-
 
     def is_authenticated(self):
         return True
@@ -97,25 +78,29 @@ class HomelessUser(db.Model):
         self.firstname = firstname
         self.lastname = lastname
         self.email = email
-        self.personalID = personalID
-        self.age = age
-        self.gender = gender
-        self.lastvisit = lastvisit
-        self.lastupdate = lastupdate
-
 
     def is_authenticated(self):
         return True
 
-    def is_active(self):
-        return True
-
-    def is_anonymous(self):
-        return False
-
     def get_id(self):
         return unicode(self.id)
 
-    def __repr__(self):
-        return '<User %r>' % (self.nickname)
+class CareProviderRating(db.Model):
+    id = db.Column(db.Integer(), primary_key = True)
+    rating = db.Column(db.Integer())
+    placeName = db.Column(db.String(250))
+    description = db.Column(db.String(3000))
 
+
+    # posts = db.relationship('Post', backref = 'author', lazy = 'dynamic')
+
+    def __init__(self, rating, placeName, description):
+        self.rating = rating
+        self.placeName = placeName
+        self.description = description
+
+    def is_authenticated(self):
+        return True
+
+    def get_id(self):
+        return unicode(self.id)
