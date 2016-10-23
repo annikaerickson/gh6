@@ -22,15 +22,15 @@
       <div class="card">
         <div class="card-image">
           <img src="https://scontent-ort2-1.xx.fbcdn.net/v/t1.0-9/14034701_1365208783492814_7978153509346883846_n.jpg?oh=683ca2b2c425d9269388b049c5dd2ef0&oe=58A5D9F3">
-          <span class="card-title">Name</span>
+          <span class="card-title">Kevin Smith</span>
         </div>
-        <div class="card-content">
-          <p>Age: 27</p>
-          <p>Hometown: Atlanta, Georgia</p>
-          <p>Interests/hobbies: Dancing, cooking</p>
+        <div class="card-content neighbor-darkgrey-text">
+          <p>Age: 21</p>
+          <p>Hometown: St. Louis, Illinois</p>
+          <p>Interests/hobbies: Basketball, fishing</p>
         </div>
         <div class="card-action">
-          <a href="#">Confirm friend request</a>
+          <a class="neighbor-green-text" href="#">Confirm friend request</a>
         </div>
       </div>
     </div>
@@ -41,20 +41,30 @@
   <h3>Notifications</h3>
 
   <div class="row">
-    {% for n in range(2) %}
         <div class="col s12 m6">
           <div class="card  blue-grey lighten-3">
             <div class="card-content white-text">
-              <span class="card-title">Card Title</span>
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
+              <span class="card-title">Weather update</span>
+              <p>Today: H:86 L:73</p>
+              <p>Sunny, Low winds</p>
             </div>
             <div class="card-action">
-              <a class="blue-text text-darken-2" href="#">See more</a>
+              <a class="see-more" href="#">See more</a>
             </div>
           </div>
         </div>
-    {% endfor %}
+
+        <div class="col s12 m6">
+          <div class="card  blue-grey lighten-3">
+            <div class="card-content white-text">
+              <span class="card-title">City Update</span>
+              <p>MODOT cleaning roadways and under bridges, make sure to take care of personal items if you do not want to lose them.</p>
+            </div>
+            <div class="card-action">
+              <a class="see-more" href="#">See more</a>
+            </div>
+          </div>
+        </div>
   </div>    
 
 {%endblock%}
