@@ -109,6 +109,10 @@ def homelessLogin():
 
 		return render_template('homeless/homeless_login.html.j2')
 
+@app.route('/client/profile')
+def clientProfile():
+	return render_template('homeless/client_profile.html.j2')
+
 # Ratings
 @app.route('/rateCareProvider', methods=["GET", "POST"])
 def rateCareProvider():
