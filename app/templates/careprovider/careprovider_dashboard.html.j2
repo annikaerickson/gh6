@@ -53,20 +53,20 @@ var svg = d3.select("#figure").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-  color.domain(["xxxx", "Disagree", "Neither agree nor disagree", "Agree", "Strongly agree"]);
+  color.domain(["In Need", "In Shelters", "Referred", "Agree", "Strongly agree"]);
 
   d3.csv(href="{{ url_for('static', filename='csv/raw_data.csv') }}"
 , function(error, data) {
 
   data.forEach(function(d) {
     // calc percentages
-    d["xxxx"] = +d[1]*100/d.N;
-    d["Disagree"] = +d[2]*100/d.N;
-    d["Neither agree nor disagree"] = +d[3]*100/d.N;
+    d["In Need"] = +d[1]*100/d.N;
+    d["In Shelters"] = +d[2]*100/d.N;
+    d["Referred"] = +d[3]*100/d.N;
     d["Agree"] = +d[4]*100/d.N;
     d["Strongly agree"] = +d[5]*100/d.N;
-    var x0 = -1*(d["Neither agree nor disagree"]/2+d["Disagree"]+d["xxxx"]);
-    var idx = 0;
+    var x0 = 1;
+    var idx = 1;
     d.boxes = color.domain().map(function(name) { return {name: name, x0: x0, x1: x0 += +d[name], N: +d.N, n: +d[idx += 1]}; });
   });
 
