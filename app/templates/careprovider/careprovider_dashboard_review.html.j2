@@ -17,7 +17,7 @@
   <style>
   .chart div {
     font: 10px sans-serif;
-    background-color: steelblue;
+    background-color: #9B9B9B;
     text-align: right;
     padding: 3px;
     margin: 1px;
@@ -29,12 +29,11 @@
 <h3>Care Provider Review</h3>
 
 <div class="chart">
-  <div style="width: 40px;">4</div>
-  <div style="width: 80px;">8</div>
-  <div style="width: 150px;">15</div>
-  <div style="width: 160px;">16</div>
-  <div style="width: 230px;">23</div>
-  <div style="width: 420px;">42</div>
+  <div style="width: 350px;">3.5</div>
+  <div style="width: 440px;">4.4</div>
+  <div style="width: 480px;">4.8</div>
+  <div style="width: 210px;">2.1</div>
+  <div style="width: 390px;">3.9</div>
 </div>
 
 <h3>Age Groups Review</h3>
@@ -48,8 +47,7 @@
     .tg .tg-yw4l{vertical-align:top}
     </style>
 
-
-  <script>
+{#   <script>
     var data = [4, 8, 15, 16, 23, 42];
 
     d3.select(".chart")
@@ -58,8 +56,8 @@
   .enter().append("div")
     .style("width", function(d) { return d * 10 + "px"; })
     .text(function(d) { return d; });
-  </script>  
-
+  </script> 
+ #}
 
   <script>
 
@@ -68,7 +66,7 @@ var width = 960,
     radius = Math.min(width, height) / 2;
 
 var color = d3.scale.ordinal()
-    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+    .range(["#B4F2E4", "#6AF0D2", "#45D4B4", "#185441", "#53BDA5", "#327062", "#7CD4CC"]);
 
 var arc = d3.svg.arc()
     .outerRadius(radius - 10)

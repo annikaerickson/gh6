@@ -53,19 +53,19 @@ var svg = d3.select("#figure").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-  color.domain(["Strongly disagree", "Disagree", "Neither agree nor disagree", "Agree", "Strongly agree"]);
+  color.domain(["xxxx", "Disagree", "Neither agree nor disagree", "Agree", "Strongly agree"]);
 
   d3.csv(href="{{ url_for('static', filename='csv/raw_data.csv') }}"
 , function(error, data) {
 
   data.forEach(function(d) {
     // calc percentages
-    d["Strongly disagree"] = +d[1]*100/d.N;
+    d["xxxx"] = +d[1]*100/d.N;
     d["Disagree"] = +d[2]*100/d.N;
     d["Neither agree nor disagree"] = +d[3]*100/d.N;
     d["Agree"] = +d[4]*100/d.N;
     d["Strongly agree"] = +d[5]*100/d.N;
-    var x0 = -1*(d["Neither agree nor disagree"]/2+d["Disagree"]+d["Strongly disagree"]);
+    var x0 = -1*(d["Neither agree nor disagree"]/2+d["Disagree"]+d["xxxx"]);
     var idx = 0;
     d.boxes = color.domain().map(function(name) { return {name: name, x0: x0, x1: x0 += +d[name], N: +d.N, n: +d[idx += 1]}; });
   });
@@ -181,15 +181,6 @@ var svg = d3.select("#figure").append("svg")
 
 </style>
 
-<div class="chart">
-  <div style="width: 40px;">4</div>
-  <div style="width: 80px;">8</div>
-  <div style="width: 150px;">15</div>
-  <div style="width: 160px;">16</div>
-  <div style="width: 230px;">23</div>
-  <div style="width: 420px;">42</div>
-</div>
-
   <h3>Texts for Service</h3>
 
   <div class="row">
@@ -238,17 +229,5 @@ var svg = d3.select("#figure").append("svg")
         </tr>
       {% endfor %}
     </table>
-
-
-  <script>
-    var data = [4, 8, 15, 16, 23, 42];
-
-    d3.select(".chart")
-  .selectAll("div")
-    .data(data)
-  .enter().append("div")
-    .style("width", function(d) { return d * 10 + "px"; })
-    .text(function(d) { return d; });
-  </script>  
 
 {%endblock%}
