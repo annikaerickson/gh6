@@ -10,43 +10,123 @@
   <h3>Friendships</h3>
 
   <div class="row">
-    {% for n in range(4) %}
     <div class="col s12 m3">
       <div class="card">
         <div class="card-image">
-          <img src="https://scontent-ort2-1.xx.fbcdn.net/v/t1.0-9/14034701_1365208783492814_7978153509346883846_n.jpg?oh=683ca2b2c425d9269388b049c5dd2ef0&oe=58A5D9F3">
-          <span class="card-title">Name</span>
+          <img src="https://pp.vk.me/c626427/v626427592/35369/3HAr5uVY5TU.jpg">
+          <span class="card-title">Jason</span>
         </div>
-        <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
+        <div class="card-content neighbor-darkgrey-text">
+          <p>Age: 22</p>
+          <p>Hometown: Seattle, Washington</p>
+          <p>Interests: Dirt bikes, fishing</p>
         </div>
         <div class="card-action">
-          <a href="#">Add as friend</a>
+          <a class="neighbor-green-text" href="#">Add as friend</a>
         </div>
       </div>
     </div>
-    {% endfor %}
+
+    <div class="col s12 m3">
+      <div class="card">
+        <div class="card-image">
+          <img src="https://pp.vk.me/c626427/v626427592/3537e/t7cEWJkuheY.jpg">
+          <span class="card-title">Angie</span>
+        </div>
+        <div class="card-content neighbor-darkgrey-text">
+          <p>Age: 32</p>
+          <p>Hometown: Chicago, Illinois</p>
+          <p>Interests: Coffee, British literature</p>
+        </div>
+        <div class="card-action">
+          <a class="neighbor-green-text" href="#">Add as friend</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s12 m3">
+      <div class="card">
+        <div class="card-image">
+          <img src="https://pp.vk.me/c626427/v626427592/35377/lQbZa3tLq7s.jpg">
+          <span class="card-title">Monica</span>
+        </div>
+        <div class="card-content neighbor-darkgrey-text">
+          <p>Age: 27</p>
+          <p>Hometown: Atlanta, Georgia</p>
+          <p>Interests: Dancing, cooking, tennis</p>
+        </div>
+        <div class="card-action">
+          <a class="neighbor-green-text" href="#">Add as friend</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s12 m3">
+      <div class="card">
+        <div class="card-image">
+          <img src="https://pp.vk.me/c626427/v626427592/35370/3GDA28nRDaQ.jpg">
+          <span class="card-title">Zack</span>
+        </div>
+        <div class="card-content neighbor-darkgrey-text">
+          <p>Age: 29</p>
+          <p>Hometown: San Francisco, California</p>
+          <p>Interests: Acting, surfing</p>
+        </div>
+        <div class="card-action">
+          <a class="neighbor-green-text" href="#">Add as friend</a>
+        </div>
+      </div>
+    </div>
   </div>    
 
 
   <h3>Volunteer Opportunities</h3>
 
   <div class="row">
-    {% for n in range(3) %}
         <div class="col s12 m6">
           <div class="card  blue-grey lighten-3">
             <div class="card-content white-text">
-              <span class="card-title">Card Title</span>
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
+              <span class="card-title">Organization: St. Anthony’s Food Pantry</span>
+              <p>Position: Soup Kitchen Attendant</p>
+              <p>Date: 10/29/2016 </p>
+              <p>Time: 11am-1pm</p>
+              <p>Location: 3140 Meramec St., St. Louis, MO 63118</p>
             </div>
             <div class="card-action">
-              <a class="blue-text text-darken-2" href="#">See more</a>
+              <a class="see-more" href="#">See more</a>
             </div>
           </div>
         </div>
-    {% endfor %}
+
+        <div class="col s12 m6">
+          <div class="card  blue-grey lighten-3">
+            <div class="card-content white-text">
+              <span class="card-title">Organization: Labre Ministries</span>
+                <p>Position: Outreach Participant</p>
+                <p>Date: 10/26/2016</p> 
+                </p>Time: 6pm-10pm</p>
+                </p>Location: 4012 Washington Ave., St. Louis, MO 63103</p>
+            </div>
+            <div class="card-action">
+              <a class="see-more" href="#">See more</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col s12 m6">
+          <div class="card  blue-grey lighten-3">
+            <div class="card-content white-text">
+              <span class="card-title">Organization: Gateway 180</span>
+              <p>Position: Bedtime Story Reader</p>
+              <p>Date: 11/01/2016</p>
+              <p>Time: 6pm-8pm</p>
+              <p>Location: 1000 19th St., St. Louis, MO 63106</p>
+            </div>
+            <div class="card-action">
+              <a class="see-more" href="#">See more</a>
+            </div>
+          </div>
+        </div>
   </div>    
 
 {%endblock%}

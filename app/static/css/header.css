@@ -4,25 +4,30 @@
 }
 
 .neighbor-green {
-	background-color: #45D4B4 
+	background-color: #45D4B4; 
 }
 
 .neighbor-lightgrey {
-	background-color: #9B9B9B
+	background-color: #9B9B9B;
 }
 
 .neighbor-darkgrey {
-	background-color: #9B9B9B
+	background-color: #9B9B9B;
 }
 
 .neighbor-green-text {
-	color: #4A4A4A 
+	color: #45D4B4 !important;
+}
+
+.neighbor-darkgrey-text {
+  color: #9B9B9B;
 }
 
 .brand-logo img {
     height: 42px;
     margin-top: 13px;
 }
+
 body {
     background-image: url("https://pp.vk.me/c626427/v626427592/35285/K7b7dEGgxWw.jpg");
     background-size: cover;
@@ -48,6 +53,12 @@ body {
 
 .arc path {
   stroke: #fff;
+}
+
+.see-more {
+  border: 1px solid !important;
+  padding: 8px !important;
+  color: white !important; 
 }
 
 @font-face {
