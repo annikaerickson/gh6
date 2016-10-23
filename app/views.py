@@ -84,7 +84,7 @@ def careproviderLogin():
 		email = request.form.get('email', None)
 		query = OrganizationUser.query.filter_by(email=email, password=password).first()
 		if (query):
-			return "Found"
+			return render_template('careprovider/careprovider_dashboard.html.j2')
 		else:
 			return "Not found"
 		# careproviderDashboard()

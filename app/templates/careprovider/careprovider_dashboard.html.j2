@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{%block title%}Index!{%endblock%}
+{%block title%}Care Provider Dashboard{%endblock%}
 
 {%- block style %}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/helpful.css') }}">
@@ -11,6 +11,15 @@
     <ul class="collection">
       <li class="collection-item"><a href="#">Add Profile</a></li>
     </ul>
+
+<div class="chart">
+  <div style="width: 40px;">4</div>
+  <div style="width: 80px;">8</div>
+  <div style="width: 150px;">15</div>
+  <div style="width: 160px;">16</div>
+  <div style="width: 230px;">23</div>
+  <div style="width: 420px;">42</div>
+</div>
 
   <h3>Notifications</h3>
 
@@ -48,6 +57,18 @@
           </div>
         </div>
     {% endfor %}
-  </div>        
+  </div>      
+
+
+  <script>
+    var data = [4, 8, 15, 16, 23, 42];
+
+    d3.select(".chart")
+  .selectAll("div")
+    .data(data)
+  .enter().append("div")
+    .style("width", function(d) { return d * 10 + "px"; })
+    .text(function(d) { return d; });
+  </script>  
 
 {%endblock%}
